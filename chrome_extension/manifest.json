@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "GourmetGenie Tesco Shopping Assistant",
+  "description": "A Shopping assistant",
+  "version": "0.0.3",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.tesco.com/*","https://www.tesco.ie/*"],
+      "js": ["content_tesco.js", "content_tesco_purchase_product.js"]
+    },
+    {
+      "matches": ["https://www.tesco.com/groceries/en-GB/search?query=*","https://www.tesco.ie/groceries/en-IE/search?query=*"],
+      "js": ["content_tesco_product_scrape.js"]
+    }
+  ]
+}
